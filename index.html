@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Tinkerers Paris — Epic Startup Sprint | Partnership</title>
+  <meta name="description" content="Partner with AI Tinkerers Paris to meet ambitious AI founders early through a high-signal builder program, live hackathons, weekly momentum, and structured follow-up." />
+  <meta name="theme-color" content="#3d53c2" />
+  <meta property="og:title" content="AI Tinkerers Paris — Epic Startup Sprint | Partnership" />
+  <meta property="og:description" content="Early access to high-signal AI founders through a builder program designed for momentum, visibility, and long-term follow-up." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body, h1, h2, h3, p, ul { margin: 0; }
+    ul { padding: 0; }
+    a { color: inherit; }
+    button, input, textarea, select { font: inherit; }
+
+    :root {
+      --indigo-50: #eceef9;
+      --indigo-100: #d8ddf3;
+      --indigo-400: #6476ce;
+      --indigo-500: #3d53c2;
+      --indigo-600: #31439b;
+      --indigo-700: #253274;
+      --indigo-900: #0c1127;
+
+      --ash-50: #f1f5f0;
+      --slate-100: #f8fafc;
+      --slate-200: #e2e8f0;
+      --slate-500: #64748b;
+      --slate-700: #334155;
+      --slate-900: #0f172a;
+
+      --charcoal-100: #e9e8e2;
+      --charcoal-600: #736e59;
+
+      --bg-page: #f4f3f1;
+      --bg-card: #ffffff;
+      --text-heading: var(--slate-900);
+      --text-body: var(--slate-700);
+      --text-muted: var(--slate-500);
+      --border-default: var(--slate-200);
+      --border-light: var(--charcoal-100);
+      --primary: var(--indigo-500);
+      --primary-hover: var(--indigo-600);
+      --primary-active: var(--indigo-700);
+      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+      --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --radius-lg: 14px;
+      --radius-xl: 20px;
+      --max-w: 1120px;
+      --max-copy: 720px;
+      --section-gap: clamp(72px, 10vw, 120px);
+      --font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    body {
+      background: var(--bg-page);
+      color: var(--text-body);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section {
+      padding: var(--section-gap) 0;
+    }
+
+    .section-rule,
+    .section-rule-center {
+      width: 44px;
+      height: 2px;
+      background: var(--primary);
+      margin-bottom: 28px;
+    }
+
+    .section-rule-center {
+      margin: 0 auto 28px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .eyebrow-badge {
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--indigo-50);
+      color: var(--primary);
+    }
+
+    .display {
+      font-size: clamp(2.4rem, 6vw, 4.6rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      font-weight: 800;
+      color: var(--text-heading);
+    }
+
+    .heading-xl {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      font-weight: 700;
+      color: var(--text-heading);
+    }
+
+    .heading-lg {
+      font-size: clamp(1.15rem, 2vw, 1.35rem);
+      line-height: 1.2;
+      font-weight: 700;
+      color: var(--text-heading);
+    }
+
+    .lead {
+      font-size: clamp(1.125rem, 2vw, 1.35rem);
+      line-height: 1.5;
+      color: var(--slate-900);
+      max-width: 56ch;
+    }
+
+    .body {
+      font-size: 1rem;
+      color: var(--text-body);
+    }
+
+    .muted {
+      font-size: 0.925rem;
+      color: var(--text-muted);
+    }
+
+    .hero {
+      position: relative;
+      padding: clamp(36px, 8vw, 64px) 0 var(--section-gap);
+      overflow: clip;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 4px;
+      background: var(--primary);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -120px;
+      top: 40px;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(61, 83, 194, 0.12), rgba(61, 83, 194, 0) 68%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 36px;
+      align-items: end;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--indigo-500), var(--indigo-700));
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      box-shadow: var(--shadow-md);
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--slate-900);
+    }
+
+    .hero-meta {
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      margin-top: 18px;
+      margin-bottom: 18px;
+      max-width: 10ch;
+    }
+
+    .hero-copy {
+      max-width: var(--max-copy);
+    }
+
+    .hero-description {
+      margin-top: 18px;
+      max-width: 60ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 14px 22px;
+      border-radius: var(--radius-lg);
+      border: 1.5px solid transparent;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+      will-change: transform;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+    .btn:focus-visible {
+      outline: 3px solid rgba(61, 83, 194, 0.22);
+      outline-offset: 2px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(61, 83, 194, 0.24);
+    }
+
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-primary:active { background: var(--primary-active); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary);
+      border-color: rgba(61, 83, 194, 0.28);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(61, 83, 194, 0.06);
+      border-color: var(--primary);
+    }
+
+    .hero-panel {
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      box-shadow: var(--shadow-md);
+      align-self: start;
+    }
+
+    .hero-panel-title {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .stat-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .stat {
+      padding: 14px 0;
+      border-top: 1px solid var(--border-default);
+    }
+
+    .stat:first-child { border-top: none; padding-top: 0; }
+
+    .stat strong {
+      display: block;
+      font-size: 1.05rem;
+      color: var(--slate-900);
+      margin-bottom: 2px;
+    }
+
+    .divider {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .divider-line {
+      height: 1px;
+      background: var(--border-default);
+    }
+
+    .split {
+      display: grid;
+      gap: 36px;
+      align-items: start;
+    }
+
+    .copy { max-width: 62ch; }
+
+    .number-list,
+    .plain-list,
+    .feature-list,
+    .addon-list { list-style: none; }
+
+    .number-list {
+      margin-top: 28px;
+      display: grid;
+      gap: 0;
+    }
+
+    .number-list li,
+    .plain-list li,
+    .feature-list li {
+      display: flex;
+      gap: 14px;
+      align-items: baseline;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .number-list li:last-child,
+    .plain-list li:last-child,
+    .feature-list li:last-child { border-bottom: none; }
+
+    .num {
+      width: 24px;
+      flex-shrink: 0;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .plain-list li::before,
+    .feature-list li::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--primary);
+      flex-shrink: 0;
+      position: relative;
+      top: 8px;
+    }
+
+    .signal {
+      background: var(--indigo-900);
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .signal .section-rule { background: var(--indigo-400); }
+    .signal .heading-xl,
+    .signal .heading-lg,
+    .signal .lead { color: #fff; }
+    .signal .body,
+    .signal .muted { color: rgba(255, 255, 255, 0.72); }
+
+    .signal-cards {
+      display: grid;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .signal-card {
+      padding: 20px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .signal-card-title {
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.55);
+      margin-bottom: 8px;
+    }
+
+    .tiers-grid,
+    .portal-grid,
+    .cta-grid {
+      display: grid;
+      gap: 22px;
+      margin-top: 34px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-xl);
+      padding: clamp(24px, 4vw, 34px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .tier {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .tier.recommended {
+      border-width: 2px;
+      border-color: var(--primary);
+      box-shadow: var(--shadow-md);
+    }
+
+    .tier-badge {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--indigo-50);
+      color: var(--primary);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .price {
+      margin-top: 6px;
+      margin-bottom: 22px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .addon-label {
+      margin-top: auto;
+      padding-top: 18px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .addon-list {
+      margin-top: 12px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .addon-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px dotted var(--border-light);
+      color: var(--text-body);
+      font-size: 0.94rem;
+    }
+
+    .addon-list li:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .addon-price {
+      white-space: nowrap;
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      color: var(--charcoal-600);
+    }
+
+    .portal {
+      background: var(--ash-50);
+    }
+
+    .portal-card {
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(8px);
+    }
+
+    .portal-card p:first-child {
+      margin-bottom: 6px;
+    }
+
+    .final {
+      text-align: center;
+    }
+
+    .final .lead {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .final-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin-top: 34px;
+    }
+
+    .contact-link {
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .contact-link a {
+      color: var(--primary);
+      text-underline-offset: 3px;
+    }
+
+    .footer {
+      padding: 30px 0 40px;
+      border-top: 1px solid var(--border-default);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-note,
+    .footer-mini {
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 600ms ease, transform 600ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (min-width: 880px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1.3fr) minmax(280px, 360px);
+      }
+
+      .split {
+        grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+      }
+
+      .tiers-grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: stretch;
+      }
+
+      .portal-grid,
+      .signal-cards,
+      .cta-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container { padding: 0 20px; }
+      .divider { padding: 0 20px; }
+      .btn { width: 100%; }
+      .hero-panel { padding: 20px; }
+      .footer-inner { justify-content: center; text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal,
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <a class="brand reveal" href="#top" aria-label="AI Tinkerers Paris partnership page">
+          <span class="brand-mark" aria-hidden="true">AIT</span>
+          <span class="brand-text">AI Tinkerers Paris</span>
+        </a>
+
+        <div class="hero-meta reveal">
+          <span class="eyebrow">Partnership Prospectus</span>
+        </div>
+
+        <p class="eyebrow eyebrow-badge reveal">Epic Startup Sprint</p>
+        <h1 class="display reveal">Early access to high-signal AI founders</h1>
+        <p class="lead hero-copy reveal">Sponsor a builder program designed to surface strong technical teams through live hackathons, weekly shipping momentum, fundraising support, and structured follow-up.</p>
+        <p class="body hero-description reveal">This sprint is designed to help ambitious builders turn hackathon projects into real startups through a simple weekly rhythm: build on Sundays, keep shipping during the week, report progress clearly and use the community around you when helpful.</p>
+
+        <div class="hero-actions reveal">
+          <a href="https://calendly.com/abdoulaye-k-doucoure/30min" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Book a 30-min intro call</a>
+          <a href="#tiers" class="btn btn-secondary">See partner tiers</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel reveal" aria-label="At a glance">
+        <p class="hero-panel-title">Why this format works</p>
+        <div class="stat-list">
+          <div class="stat">
+            <strong>Longitudinal founder signal</strong>
+            <span class="muted">Partners see trajectories over time, not just one-off applications.</span>
+          </div>
+          <div class="stat">
+            <strong>Structured partner touchpoints</strong>
+            <span class="muted">Visibility, challenge design, judging, and post-event follow-up all fit into one program.</span>
+          </div>
+          <div class="stat">
+            <strong>Built for technical ecosystems</strong>
+            <span class="muted">A format created by AI engineers and data scientists for ambitious builders.</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <div class="divider"><div class="divider-line"></div></div>
+
+  <main>
+    <section class="section">
+      <div class="container split">
+        <div class="copy">
+          <div class="section-rule reveal"></div>
+          <h2 class="heading-xl reveal">Why partner with AI Tinkerers Paris</h2>
+          <p class="body" style="margin-top:16px;">The opportunity is simple: build proximity with ambitious AI teams before they become obvious. The program is designed for partners who want earlier context, stronger signal, and better follow-through.</p>
+        </div>
+        <ul class="number-list">
+          <li class="reveal"><span class="num">01</span><span class="heading-lg">Meet ambitious AI teams early</span></li>
+          <li class="reveal"><span class="num">02</span><span class="heading-lg">Track momentum and emerging signals</span></li>
+          <li class="reveal"><span class="num">03</span><span class="heading-lg">Build trust with future venture-scale founders</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="divider"><div class="divider-line"></div></div>
+
+    <section class="section">
+      <div class="container split">
+        <div class="copy">
+          <div class="section-rule reveal"></div>
+          <h2 class="heading-xl reveal">More than a one-day hackathon</h2>
+          <p class="body reveal" style="margin-top:16px;">This is a builder program, not just a standalone event. The goal is to help technical teams move from experimentation toward company-building, with more continuity before and after the sprint.</p>
+        </div>
+        <ul class="plain-list">
+          <li class="reveal"><span>Weekly build rhythm and visible progress</span></li>
+          <li class="reveal"><span>Mentor access and fundraising support</span></li>
+          <li class="reveal"><span>Structured follow-up beyond the event</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section signal">
+      <div class="container">
+        <div class="section-rule reveal"></div>
+        <h2 class="heading-xl reveal">Why the signal is different</h2>
+        <p class="lead reveal" style="margin-top:16px;">AI Tinkerers Paris is a long-term builder network where strong founders emerge through repeated signals, consistency, and peer-calibrated progress over time.</p>
+
+        <div class="signal-cards">
+          <article class="signal-card reveal">
+            <p class="signal-card-title">Founder matching</p>
+            <p class="body">Longitudinal technical and professional signals make founder matching more grounded and more useful.</p>
+          </article>
+          <article class="signal-card reveal">
+            <p class="signal-card-title">Team quality</p>
+            <p class="body">Higher-quality teams emerge through repeated shipping, visible consistency, and strong peer signals.</p>
+          </article>
+          <article class="signal-card reveal">
+            <p class="signal-card-title">Partner value</p>
+            <p class="body">Partners get access to trajectories, not just applications, demos, or a single pitch moment.</p>
+          </article>
+        </div>
+
+        <p class="muted reveal" style="margin-top:22px;"><em>Built by AI engineers and data scientists, for technical founders.</em></p>
+      </div>
+    </section>
+
+    <section class="section" id="tiers">
+      <div class="container">
+        <div class="section-rule reveal"></div>
+        <h2 class="heading-xl reveal">Partnership tiers</h2>
+        <p class="body reveal" style="margin-top:16px; max-width:60ch;">Two clear entry points let partners choose between brand visibility and a deeper flagship presence across the program.</p>
+
+        <div class="tiers-grid">
+          <article class="card tier reveal">
+            <div>
+              <h3 class="heading-lg">Community Partner</h3>
+              <p class="price">Starting at €3,000</p>
+              <ul class="feature-list">
+                <li><span>Logo and brand placement on select materials and the event website</span></li>
+                <li><span>Access to curated analytics on participant engagement</span></li>
+                <li><span>Post-event partner impact report with engagement metrics and ROI</span></li>
+              </ul>
+            </div>
+            <div class="addon-label">Optional add-ons</div>
+            <ul class="addon-list">
+              <li><span>Prize Partnership</span><span class="addon-price">€2,000</span></li>
+              <li><span>Judge Participation</span><span class="addon-price">€500 / judge</span></li>
+              <li><span>Prize Category</span><span class="addon-price">€2,000</span></li>
+              <li><span>Lunch Talk</span><span class="addon-price">€2,000</span></li>
+            </ul>
+          </article>
+
+          <article class="card tier recommended reveal">
+            <div class="tier-badge">Recommended</div>
+            <div>
+              <h3 class="heading-lg">Marquee Partner</h3>
+              <p class="price">Starting at €15,000</p>
+              <ul class="feature-list">
+                <li><span>Prominent logo and brand placement across event materials, newsletter, emails, and socials</span></li>
+                <li><span>All Community Partner benefits included</span></li>
+                <li><span>Option to present the grand prize challenge</span></li>
+                <li><span>Opening ceremony keynote talk</span></li>
+                <li><span>8 collaborators listed in the networking app, 6 partners and 2 judges</span></li>
+                <li><span>Builder Station booth space in the community area</span></li>
+              </ul>
+            </div>
+            <div class="addon-label">Optional add-ons</div>
+            <ul class="addon-list">
+              <li><span>VIP Dinner</span><span class="addon-price">€10,000</span></li>
+              <li><span>Winners Public Demo Day</span><span class="addon-price">€5,000</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"><div class="divider-line"></div></div>
+
+    <section class="section portal">
+      <div class="container">
+        <div class="section-rule reveal"></div>
+        <h2 class="heading-xl reveal">Partner portal</h2>
+        <p class="body reveal" style="margin-top:16px; max-width:56ch;">A centralized workspace to increase partner visibility, improve engagement during the sprint, and create better continuity after the event.</p>
+
+        <div class="portal-grid">
+          <article class="card portal-card reveal">
+            <p class="heading-lg">Visibility</p>
+            <p class="body">Showcase your company, brand, and partner offers across the program.</p>
+          </article>
+          <article class="card portal-card reveal">
+            <p class="heading-lg">Engagement</p>
+            <p class="body">Connect with participants, finalists, and winners through structured partner access points.</p>
+          </article>
+          <article class="card portal-card reveal">
+            <p class="heading-lg">Follow-up</p>
+            <p class="body">Manage prizes, outreach, and post-event opportunities with stronger continuity.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"><div class="divider-line"></div></div>
+
+    <section class="section final">
+      <div class="container">
+        <div class="section-rule-center reveal"></div>
+        <h2 class="heading-xl reveal">Let’s partner to shape the future of AI</h2>
+        <p class="lead reveal" style="margin-top:14px;">Choose the right package for your goals and start a conversation about how you want to show up in the program.</p>
+
+        <div class="final-actions reveal">
+          <a href="https://calendly.com/abdoulaye-k-doucoure/30min" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Book a 30-min intro call</a>
+          <p class="contact-link"><a href="mailto:abdoulayedoucoure.ammi@gmail.com">abdoulayedoucoure.ammi@gmail.com</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-note">A WELTARE accelerator initiative</p>
+      <p class="footer-mini">Powered by AI Tinkerers Paris community</p>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const supportsReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (supportsReducedMotion || !('IntersectionObserver' in window)) {
+        document.querySelectorAll('.reveal').forEach((el) => el.classList.add('visible'));
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    })();
+  </script>
+</body>
+</html>
