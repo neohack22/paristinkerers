@@ -12,6 +12,7 @@ based on LLM-produced URLs. Paths must come from authenticated OpenAPI operation
 import argparse, datetime as dt, hashlib, json, os, sys, tempfile, urllib.error, urllib.parse, urllib.request
 from pathlib import Path
 import yaml
+from access_policy import canonical_chapter, validate_job, record_is_allowed, is_api_chapter
 
 HOST='https://aitinkerers.org'
 BASE=HOST+'/api/agents/v1'
@@ -69,11 +70,18 @@ def pick(obj,path):
     return obj
 
 def sync(config,key,ops,old):
-    results=[]; existing={r['record_key']:r for r in old.get('records',[]) if isinstance(r,dict) and 'record_key' in r}
+    policy=config.get('access_policy', {})
+    results=[]
+    # Never retain previously fetched data for non-enabled chapters.
+    existing={r['record_key']:r for r in old.get('records',[])
+              if isinstance(r,dict) and 'record_key' in r
+              and is_api_chapter(r.get('chapter'), policy)}
     counts={'new':0,'changed':0,'unchanged':0,'skipped':0}
     for job in config.get('jobs',[]):
         name=job['operation_id']; endpoint=ops.get(name)
-        if not endpoint: results.append({'operation':name,'status':'unavailable_or_not_readable'});continue
+        decision=validate_job(job,endpoint,policy)
+        if not decision.allowed:
+            results.append({'operation':name,'status':'blocked_by_scope','reason':decision.reason});continue
         # Exact user-configured parameters, checked against the authorized schema.
         allowed={x['name'] for x in endpoint['parameters']}
         supplied=job.get('params',{})
@@ -91,8 +99,11 @@ def sync(config,key,ops,old):
             if not isinstance(item,dict):counts['skipped']+=1;continue
             record={k:pick(item,path) for k,path in job.get('fields',{}).items()}
             source_id=record.get('source_id')
-            if not source_id:counts['skipped']+=1;continue
-            key_id=f'{name}:{source_id}'
+            # Both API response and requested scope must match; aliases accepted.
+            if not source_id or not record_is_allowed(record, job['chapter']):
+                counts['skipped']+=1;continue
+            key_id=f"{canonical_chapter(job['chapter'])}:{name}:{source_id}"
+            record['chapter'] = canonical_chapter(job['chapter'])
             record={'record_key':key_id,'source_operation':name,'source_path':endpoint['path'],**record}
             digest=hashlib.sha256(json.dumps(record,sort_keys=True,ensure_ascii=False).encode()).hexdigest()
             before=existing.get(key_id)
