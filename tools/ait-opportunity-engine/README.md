@@ -57,3 +57,33 @@ Le `sync_state.json` joue le rôle d'index de synchronisation : le script ne rem
 **Exécution récurrente sans Codex :** une fois l'accès et les champs testés, un ordonnanceur local (cron/systemd) peut lancer la même séquence Python. Le serveur doit assurer l'accès sécurisé à la clé, le chiffrement/contrôle d'accès des fichiers, la durée de conservation permise par AIT, les erreurs et les permissions. Aucun ordonnanceur n'est installé par cette livraison.
 
 Test local sans clé : `python -m unittest discover -p 'test_*.py'`.
+
+## Géographie et permissions — règle du 22 novembre 2026
+
+**Accès API REST ou MCP** : seulement Paris, Lima, Bamako (BKO), Conakry (CKY), Casablanca (Casa). San Francisco (SF) est une exception à utiliser avec parcimonie, désactivée par défaut. **Aucun accès API/MCP** aux villes du tour visitées hors de ce périmètre (Singapour, Kuala Lumpur, Hô Chi Minh-Ville, Da Nang, Hong Kong, Shenzhen, Pékin, Tokyo), ni aux villes ajoutées manuellement (Eindhoven, etc.). Leurs données proviennent uniquement de sources publiques ou fournies par l'utilisateur.
+
+Les protections sont dans `access_policy.py` : requête API autorisée seulement si le paramètre de filtrage (`chapter_filter_param`) est reconnu par l'OpenAPI authentifiée **et** si sa valeur est approuvée dans `access_policy.api_chapters[chapter].allowed_filters`. Chaque réponse doit avoir un champ de chapitre explicite et cohérent, sinon elle est ignorée. La politique est **fail-closed** : avec le fichier de configuration d'exemple, aucune requête projet n'est lancée ; les vrais tokens/paramètres restent à découvrir dans la session authentifiée. `import_snapshot.py` vérifie également le chapitre avant import.
+
+Une configuration de lecture à activer **uniquement après vérification** ressemblerait à ceci (identifiants symboliques) :
+
+```json
+{
+  "access_policy": {"api_chapters": {"paris": {"enabled": true, "allowed_filters": {"meetup_token": ["TOKEN_VERIFIE"]}}}},
+  "jobs": [{
+    "operation_id": "GET_OPERATION_ID_VERIFIE",
+    "chapter": "paris",
+    "chapter_filter_param": "meetup_token",
+    "params": {"meetup_token": "TOKEN_VERIFIE"},
+    "chapter_field": "city",
+    "items_path": "data.items",
+    "fields": {"source_id": "token", "title": "title", "chapter": "city"},
+    "max_items": 20
+  }]
+}
+```
+
+**Important :** les noms d'opérations, champs et valeurs ci-dessus sont des exemples, pas des éléments authentifiés de l'API AIT. Le connecteur n'accepte que ceux effectivement déclarés. La liste des villes publiques dans `access_policy.example.json` sert à orienter les recherches hors API ; elle peut être complétée sans changer les droits API.
+
+### Reprise par un autre agent
+
+Lire `AGENTS.md` en premier, puis lancer les tests. Le connecteur REST n'impose pas une machine personnelle : l'exécuteur doit être un environnement autorisé de **ChatGPT ou Codex**, si ses possibilités d'accès réseau/secret et de persistance le permettent. Aucune automatisation cloud ni synchronisation du Site n'est déclarée active à ce jour. Code et tests vont sur GitHub ; secrets et données de projets restent hors du dépôt public.
