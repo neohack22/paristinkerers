@@ -1,0 +1,21 @@
+{
+  "schema": "ait_access_policy/v1",
+  "max_items_per_job": 100,
+  "api_chapters": {
+    "paris": {"enabled": true, "allowed_filters": {}},
+    "lima": {"enabled": true, "allowed_filters": {}},
+    "bamako": {"enabled": true, "allowed_filters": {}},
+    "conakry": {"enabled": true, "allowed_filters": {}},
+    "casablanca": {"enabled": true, "allowed_filters": {}},
+    "san-francisco": {
+      "enabled": false,
+      "max_items_per_job": 10,
+      "allowed_filters": {}
+    }
+  },
+  "public_manual_only": {
+    "visited_tour_cities": ["singapore", "kuala-lumpur", "ho-chi-minh-city", "da-nang", "hong-kong", "shenzhen", "beijing", "tokyo"],
+    "manual_cities": ["eindhoven"],
+    "rule": "Never query the AIT REST API or MCP for these cities. Use only public web resources or user-provided data."
+  }
+}
