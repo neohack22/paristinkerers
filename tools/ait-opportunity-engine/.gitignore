@@ -1,0 +1,15 @@
+# Credentials and local auth/configuration
+.env
+.env.*
+!.env.example
+sync_config.json
+capabilities.json
+# Private data and generated projections
+*graph*.json
+snapshot*.json
+sync_state*.json
+opportunities*.json
+graph_updated.json
+ma_page_ait.html
+__pycache__/
+*.pyc
