@@ -9,15 +9,15 @@ class RestSyncTests(unittest.TestCase):
  def test_picks(self):
   self.assertEqual(pick({'data':{'items':[1]}},'data.items'),[1])
  def test_incremental_idempotent(self):
-  config={'jobs':[{'operation_id':'demo_list','params':{'meetup_token':'mu_demo'},'items_path':'data.items','fields':{'source_id':'token','title':'title'}}]}
-  with patch('rest_sync.request',return_value={'data':{'items':[{'token':'demo1','title':'A'}]}}):
+  config={'access_policy':{'api_chapters':{'paris':{'enabled':True,'allowed_filters':{'meetup_token':['mu_demo']}}}},'jobs':[{'operation_id':'demo_list','chapter':'paris','chapter_filter_param':'meetup_token','chapter_field':'chapter','params':{'meetup_token':'mu_demo'},'items_path':'data.items','fields':{'source_id':'token','title':'title','chapter':'chapter'}}]}
+  with patch('rest_sync.request',return_value={'data':{'items':[{'token':'demo1','title':'A','chapter':'paris'}]}}):
    a=sync(config,'fake-key',operations(self.spec),{})
    b=sync(config,'fake-key',operations(self.spec),a)
   self.assertEqual(a['counts']['new'],1);self.assertEqual(b['counts']['unchanged'],1)
  def test_missing_required_no_request(self):
-  config={'jobs':[{'operation_id':'demo_list','params':{},'items_path':'data.items','fields':{'source_id':'token'}}]}
+  config={'access_policy':{'api_chapters':{'paris':{'enabled':True,'allowed_filters':{'meetup_token':['mu_demo']}}}},'jobs':[{'operation_id':'demo_list','chapter':'paris','chapter_filter_param':'meetup_token','chapter_field':'chapter','params':{},'items_path':'data.items','fields':{'source_id':'token','chapter':'chapter'}}]}
   with patch('rest_sync.request') as mock:
    a=sync(config,'fake-key',operations(self.spec),{})
    mock.assert_not_called()
-  self.assertEqual(a['results'][0]['status'],'missing_required_query_parameters')
+  self.assertEqual(a['results'][0]['reason'],'missing_explicit_chapter_filter')
 if __name__=='__main__': unittest.main()
