@@ -1,0 +1,17 @@
+{
+  "jobs": [
+    {
+      "operation_id": "REPLACE_WITH_AUTHENTICATED_GET_OPERATION_ID",
+      "params": {},
+      "items_path": "data.items",
+      "fields": {
+        "source_id": "token",
+        "title": "title",
+        "event_token": "meetup_token",
+        "status": "status",
+        "rating": "score"
+      },
+      "max_items": 100
+    }
+  ]
+}
