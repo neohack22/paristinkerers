@@ -1,17 +1,14 @@
 {
-  "jobs": [
-    {
-      "operation_id": "REPLACE_WITH_AUTHENTICATED_GET_OPERATION_ID",
-      "params": {},
-      "items_path": "data.items",
-      "fields": {
-        "source_id": "token",
-        "title": "title",
-        "event_token": "meetup_token",
-        "status": "status",
-        "rating": "score"
-      },
-      "max_items": 100
+  "access_policy": {
+    "max_items_per_job": 100,
+    "api_chapters": {
+      "paris": {"enabled": true, "allowed_filters": {}},
+      "lima": {"enabled": true, "allowed_filters": {}},
+      "bamako": {"enabled": true, "allowed_filters": {}},
+      "conakry": {"enabled": true, "allowed_filters": {}},
+      "casablanca": {"enabled": true, "allowed_filters": {}},
+      "san-francisco": {"enabled": false, "max_items_per_job": 10, "allowed_filters": {}}
     }
-  ]
+  },
+  "jobs": []
 }
